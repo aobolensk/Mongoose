@@ -23,6 +23,7 @@
 #define MONGOOSE_IO_HPP
 
 #include "Mongoose_CSparse.hpp"
+#include "Mongoose_EdgeCutProblem.hpp"
 #include "Mongoose_Graph.hpp"
 #include "Mongoose_Internal.hpp"
 #include <string>
@@ -88,6 +89,8 @@ Graph *read_graph(const char *filename);
  * @param matcode the four character Matrix Market type code.
  */
 cs *read_matrix(const char *filename, MM_typecode &matcode);
+
+void write_graph(EdgeCutProblem *ecp);
 
 } // end namespace Mongoose
 

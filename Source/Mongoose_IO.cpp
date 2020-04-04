@@ -173,4 +173,16 @@ cs *read_matrix(const char *filename, MM_typecode &matcode)
     return compressed_A;
 }
 
+void write_graph(EdgeCutProblem *ecp)
+{
+    std::cout << ecp->n << ' ' << ecp->n << ' ' << ecp->nz << '\n';
+    for (int i = 0; i < ecp->n; ++i)
+    {
+        for (int j = ecp->p[i]; j < ecp->p[i+1]; ++j)
+        {
+            std::cout << i + 1 << ' ' << ecp->i[j] + 1 << ' ' << ecp->x[j] << '\n';
+        }
+    }
+}
+
 } // end namespace Mongoose
