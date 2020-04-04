@@ -137,6 +137,9 @@ set(MONGOOSE_LIB_FILES
 set(EXE_FILES
         Executable/mongoose.cpp)
 
+set(COARSENING_EXE_FILES
+        Executable/coarsening.cpp)
+
 set(DEMO_FILES
         Demo/demo.cpp
         Include/Mongoose.hpp)
@@ -245,6 +248,15 @@ set_target_properties(mongoose_exe
 target_link_libraries(mongoose_exe mongoose_lib)
 
 install(TARGETS mongoose_exe
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+
+# Build the Coarsening executable
+add_executable(coarsening_exe ${COARSENING_EXE_FILES})
+set_target_properties(coarsening_exe
+        PROPERTIES OUTPUT_NAME coarsening)
+target_link_libraries(coarsening_exe mongoose_lib)
+
+install(TARGETS coarsening_exe
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 # Build the Demo executable
