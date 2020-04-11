@@ -180,7 +180,7 @@ void write_graph(EdgeCutProblem *ecp)
     {
         for (int j = ecp->p[i]; j < ecp->p[i+1]; ++j)
         {
-            std::cout << i + 1 << ' ' << ecp->i[j] + 1 << ' ' << ecp->x[j] << '\n';
+            std::cout << i << ' ' << ecp->i[j] << ' ' << ecp->x[j] << '\n';
         }
     }
 }
