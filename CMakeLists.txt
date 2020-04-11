@@ -22,7 +22,7 @@
 
 cmake_minimum_required(VERSION 2.8)
 
-set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the build type")
+set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Choose the build type")
 
 include(CMake/cmake_colors.cmake)
 

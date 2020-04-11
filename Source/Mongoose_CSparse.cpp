@@ -183,7 +183,10 @@ cs *cs_compress(const cs *T)
     Ci = C->i;
     Cx = C->x;
     for (k = 0; k < nz; k++)
+    {
+        assert(Tj[k] >= 0);
         w[Tj[k]]++;      /* column counts */
+    }
     cs_cumsum(Cp, w, n); /* column pointers */
     for (k = 0; k < nz; k++)
     {
