@@ -47,14 +47,18 @@ int main(int argn, const char **argv)
         LogError("Error creating EdgeCutProblem");
         return EXIT_FAILURE;
     }
-
-    match(ecp, options);
-    EdgeCutProblem *result = coarsen(ecp, options);
-    if (!result)
-    {
-        LogError("Error coarsening");
-        return EXIT_FAILURE;
+    EdgeCutProblem *result = ecp;
+    while (result->n >= 256) {
+        fprintf(stderr, "Number of vertexes: %ld\n", result->n);
+        match(result, options);
+        result = coarsen(result, options);
+        if (!result)
+        {
+            LogError("Error coarsening");
+            return EXIT_FAILURE;
+        }
     }
+    fprintf(stderr, "Final number of vertexes: %ld\n", result->n);
 
     write_graph(result);
     return EXIT_SUCCESS;
